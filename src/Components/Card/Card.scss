@@ -1,0 +1,16 @@
+.card {
+    text-align: center;
+    height: 40%;
+    width: 30%;
+
+    &__details {
+        border: 2px solid black;
+    }
+
+
+    &__img {
+        width: 20%;
+        height: 10%;
+    }
+
+}

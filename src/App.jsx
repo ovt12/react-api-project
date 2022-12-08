@@ -2,17 +2,19 @@
 import "./App.css";
 import Main from "./Containers/Main/Main";
 import beers from "./Data/beers"
-import SearchBox from "./Components/SearchBox/SearchBox";
 import NavBar from "./Containers/NavBar/NavBar";
-import CardList from "./Components/CardList/CardList";
+import { useState } from "react";
 
 const App = () => {
+
+  
+
   return (
     <div className="app">
       <header className="greeting">
         <h1 className="greeting__heading">Punk API</h1>
-        <NavBar/>
-      <Main data={beers}/>
+        <NavBar data={beers}/>
+        <Main data={beers}/>
       </header>
     </div>
   );
