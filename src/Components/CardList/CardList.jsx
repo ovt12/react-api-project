@@ -1,8 +1,8 @@
 import "./CardList.scss";
 import Card from "../Card/Card";
 
-const CardList = ({ data }) => {
-  return data.map((user) => {
+const CardList = ({ filtered }) => {
+  return filtered.map((user) => {
     return (
       <Card
         image={user.image_url}

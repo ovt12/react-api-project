@@ -7,14 +7,30 @@ import { useState } from "react";
 
 const App = () => {
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleInput = (event) => {
+    const cleanInput = event.target.value.toLowerCase();
+    setSearchTerm(cleanInput);
+
+  };
+
+    const filtered = beers.filter((user) => {
+      console.log(user);
+      const userLowerCase = user.name.toLowerCase();
+      return userLowerCase.includes(searchTerm) && user;
+    });
+    
+  
+
   
 
   return (
     <div className="app">
       <header className="greeting">
         <h1 className="greeting__heading">Punk API</h1>
-        <NavBar data={beers}/>
-        <Main data={beers}/>
+        <NavBar searchTerm={searchTerm} handleInput={handleInput}/>
+        <Main filtered={filtered}/>
       </header>
     </div>
   );
