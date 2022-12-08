@@ -4,13 +4,28 @@
     width: 30%;
 
     &__details {
+        
         border: 2px solid black;
+        height: 50vh;
+        padding-top: 1em;
+        margin: 1rem;
+
+        
+
+    
     }
 
 
     &__img {
         width: 20%;
-        height: 10%;
+        height: 30%;
+        
+    }
+
+    &__name {
+        text-align: center;
+        margin-top: 2em;
+        
     }
 
 }

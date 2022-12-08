@@ -8,6 +8,8 @@ const CardList = ({ filtered }) => {
         image={user.image_url}
         name={user.name}
         description={user.description}
+        firstBrewed={user.first_brewed}
+        ph={user.ph}
       />
     );
   });
