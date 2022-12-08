@@ -10,6 +10,7 @@ const CardList = ({ filtered }) => {
         description={user.description}
         firstBrewed={user.first_brewed}
         ph={user.ph}
+        abv={user.abv}
       />
     );
   });

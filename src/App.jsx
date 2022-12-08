@@ -8,11 +8,26 @@ import { useState } from "react";
 const App = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [Beers, setBeers] = useState("");
+
+
+  // const [users, setUsers] = useState([]);
+
+  // const getBeers = async () => {
+  //   const url = `https://api.punkapi.com/v2/beers`;
+  //   const result = await fetch(url);
+  //   const beerData = await result.json();
+  //   setBeerList(beerData);
+  // };
+
+  // useEffect(() => {
+  //   getBeers();
+  // }, []);
+  // console.log(beerList);
 
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
-
   };
 
     const filtered = beers.filter((user) => {
@@ -20,6 +35,11 @@ const App = () => {
       const userLowerCase = user.name.toLowerCase();
       return userLowerCase.includes(searchTerm) && user;
     });
+
+    const handleBeers = (event) => {
+      setBeers(event.target.value)
+  
+    }
     
   
 
@@ -28,7 +48,7 @@ const App = () => {
     <div className="app">
       <header className="greeting">
         <h1 className="greeting__heading">Punk API</h1>
-        <NavBar searchTerm={searchTerm} handleInput={handleInput}/>
+        <NavBar searchTerm={searchTerm} handleInput={handleInput} handleBeers={handleBeers}/>
         <Main filtered={filtered}/>
       </header>
     </div>

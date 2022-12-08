@@ -1,7 +1,7 @@
 import React from "react";
 import "./Card.scss"
 
-const Card = ({image, name, description, firstBrewed, ph}) => {
+const Card = ({image, name, description, firstBrewed, ph, abv}) => {
 
 
 
@@ -13,6 +13,7 @@ const Card = ({image, name, description, firstBrewed, ph}) => {
             <h3 className="card__description">{description}</h3>
             <h3 className="card__firstBrewed">First Brewed - {firstBrewed}</h3>
             <h3 className="card__ph">ph Level - {ph}</h3>
+            <h3 className="card__abv">abv - {abv}%</h3>
             
         </div>
     </div>
