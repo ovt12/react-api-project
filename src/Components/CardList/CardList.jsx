@@ -1,8 +1,10 @@
 import "./CardList.scss";
 import Card from "../Card/Card";
 
-const CardList = ({ filtered }) => {
-  return filtered.map((user) => {
+
+const CardList = ({filtered, beerApi}) => {
+  // && is used to display the data when its ready 
+  return beerApi && beerApi.map((user) => {
     return (
       <Card
         image={user.image_url}

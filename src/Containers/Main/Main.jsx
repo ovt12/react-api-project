@@ -1,10 +1,10 @@
 import "./Main.scss";
 import CardList from "../../Components/CardList/CardList";
 
-const Main = ({filtered}) => {
+const Main = ({filtered, beerApi}) => {
   
     return <div className="main-container">
-        <CardList className="Nav__card" filtered={filtered}/>
+        <CardList className="Nav__card" filtered={filtered} beerApi={beerApi}/>
         </div>;
 };
 
