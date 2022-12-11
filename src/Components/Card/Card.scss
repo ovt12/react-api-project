@@ -1,3 +1,41 @@
+@media screen and (min-width: 320px) {
+    .card {
+        text-align: center;
+        height: 40%;
+    
+        &__details {
+            
+            border: 2px solid black;
+            height: 50%;
+            padding-top: 1em;
+            margin: 1rem;
+            text-align: center;
+            
+    
+        
+        }
+    
+        &__img {
+            width: 20%;
+            height: 30%;
+            size: 30%;
+            
+        }
+    
+        &__name {
+            text-align: center;
+            margin-top: 2em;
+            font-size: 30%;
+            
+        }
+    
+        &__description {
+            font-size: 25%;
+    
+        }
+        }
+    }
+@media screen and (min-width: 1024px) {
 .card {
     text-align: center;
     height: 40%;
@@ -6,24 +44,31 @@
     &__details {
         
         border: 2px solid black;
-        height: 50vh;
+        height: 50%;
         padding-top: 1em;
         margin: 1rem;
+        
 
     
     }
 
-
     &__img {
         width: 20%;
         height: 30%;
+        size: 30%;
         
     }
 
     &__name {
         text-align: center;
         margin-top: 2em;
+        font-size: 30%;
         
     }
 
+    &__description {
+        font-size: 25%;
+
+    }
+    }
 }
