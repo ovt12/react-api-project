@@ -1,17 +1,11 @@
 import React from "react";
-import "./RadioButton.scss";
 
-const RadioButton = ({ onChange, options, label, getBeers }) => {
+const RadioButton = ({ handleOnChange }) => {
   return (
-    <div className="radio-buttons">
-      <h1>Choose your Preference</h1>
-      <input
-        type="checkout"
-        onChange={onChange}
-        options={options}
-        label={label}
-        getBeers={getBeers}
-      />
+    <div>
+      <button onClick={handleOnChange}>High ABV</button>
+      <button onClick={handleOnChange}>Classic Range</button>
+      <button onClick={handleOnChange}>Acidic</button>
     </div>
   );
 };

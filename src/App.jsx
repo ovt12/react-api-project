@@ -1,7 +1,6 @@
 // App.jsx
 import "./App.css";
 import Main from "./Containers/Main/Main";
-import beers from "./Data/beers";
 import NavBar from "./Containers/NavBar/NavBar";
 import { useState, useEffect} from "react";
 
@@ -10,15 +9,26 @@ const App = () => {
   // can use filter.map with array in there
   const [beerList, setBeerList] = useState([])
 
+  const [Abv, setAbv] = useState(0)
+  const [Classic, setClassic] = useState(2022)
+  const [Acidic, setAcidic] = useState(0)
+
+
+
   const filtered = beerList.filter((user) => {
     const userLowerCase = user.name.toLowerCase();
     return userLowerCase.includes(searchTerm) && user;
   });
+
+  const filterAcidic = filtered.filter((beer) => {
+      const phBeer = beer.ph < 4;
+      return phBeer
+  });
   
 
+  const getBeers = async (Abv, Classic) => {
 
-  const getBeers = async () => {
-    const url = `https://api.punkapi.com/v2/beers`;
+    const url = `https://api.punkapi.com/v2/beers?abv_gt=${Abv}&brewed_before=11-${Classic}`
     const result = await fetch(url);
     const beerData = await result.json();
     setBeerList(beerData);
@@ -26,15 +36,30 @@ const App = () => {
   };
 
   useEffect(() => {
-    getBeers();
+    getBeers(Abv, Classic, Acidic);
     // Whenever search term changes then it runs the effect eg alcohol percentage.
-  }, [searchTerm]);
+  }, [Abv, Classic, Acidic]);
   
 
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
+
+ 
+
+
+  
+
+const handleOnChange = (event) => {
+  if (event.target.innerText === "High ABV")  {
+    return setAbv(6)
+  } if (event.target.innerText === "Classic Range") {
+    return setClassic(2010)
+  } if (event.target.innerText === "Acidic") {
+    return filterAcidic()
+  }
+};
 
 
 
@@ -45,6 +70,7 @@ const App = () => {
         <NavBar
           searchTerm={searchTerm}
           handleInput={handleInput}
+          handleOnChange={handleOnChange}
         />
         <Main beerApi={filtered} />
       </header>
