@@ -11,7 +11,6 @@ const App = () => {
 
   const [Abv, setAbv] = useState(0)
   const [Classic, setClassic] = useState(2022)
-  const [Acidic, setAcidic] = useState(0)
 
 
 
@@ -20,10 +19,16 @@ const App = () => {
     return userLowerCase.includes(searchTerm) && user;
   });
 
-  const filterAcidic = filtered.filter((beer) => {
-      const phBeer = beer.ph < 4;
-      return phBeer
-  });
+  const getAcidic = () => {
+    const phBeer = beerList.filter((beer) => beer.ph < 4) 
+      setBeerList(phBeer)}
+
+
+  // const filterAcidic = beerList.filter((beer) => {
+  //     const phBeer = beer.ph < 4;
+  //     console.log(phbeer);
+  //     setAcidic(phBeer)
+  // });
   
 
   const getBeers = async (Abv, Classic) => {
@@ -36,20 +41,15 @@ const App = () => {
   };
 
   useEffect(() => {
-    getBeers(Abv, Classic, Acidic);
+    getBeers(Abv, Classic);
     // Whenever search term changes then it runs the effect eg alcohol percentage.
-  }, [Abv, Classic, Acidic]);
+  }, [Abv, Classic]);
   
 
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
-  };
-
- 
-
-
-  
+  };  
 
 const handleOnChange = (event) => {
   if (event.target.innerText === "High ABV")  {
@@ -57,9 +57,10 @@ const handleOnChange = (event) => {
   } if (event.target.innerText === "Classic Range") {
     return setClassic(2010)
   } if (event.target.innerText === "Acidic") {
-    return filterAcidic()
+    return getAcidic()
   }
 };
+
 
 
 
