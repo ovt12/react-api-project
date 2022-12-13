@@ -3,7 +3,7 @@ import "./Card.scss"
 
 const Card = ({image, name, description, firstBrewed, ph, abv}) => {
 
-    const shortenedText = description.substring(0, 300) + "...";
+    const shortenedText = description.substring(0, 200) + "...";
 
 
 

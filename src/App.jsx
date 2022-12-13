@@ -41,17 +41,17 @@ const App = () => {
   };
 
   const handleOnChange = (event) => {
-    if (event.target.innerText === "High ABV" && Abv === 0) {
+    if (event.target.innerText === "High ABV - Above 6%" && Abv === 0) {
       return setAbv(6);
-    } else if (event.target.innerText === "High ABV" && Abv === 6 ) {
+    } else if (event.target.innerText === "High ABV - Above 6%" && Abv === 6 ) {
       return setAbv(0);
     }
-    if (event.target.innerText === "Classic Range" && Classic == 2022) {
+    if (event.target.innerText === "Classic Range Year's Below 2010" && Classic == 2022) {
       return setClassic(2010);
-    } else if (event.target.innerText === "Classic Range" && Classic == 2010) {
+    } else if (event.target.innerText === "Classic Range Year's Below 2010" && Classic == 2010) {
       return setClassic(2022)
     }
-    if (event.target.innerText === "Acidic") {
+    if (event.target.innerText === "Acidic ph Level below 4.0") {
       return getAcidic();
     }
   };

@@ -1,0 +1,10 @@
+@use "./../../Styles/variables" as *; 
+
+button {
+    width: 20vw;
+    margin: 1rem;
+    padding: 1em;
+    background-color: $color-heading;
+    border: 4px solid $color-boarder;
+    
+}
