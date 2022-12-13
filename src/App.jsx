@@ -5,23 +5,27 @@ import NavBar from "./Containers/NavBar/NavBar";
 import { useState, useEffect } from "react";
 
 const App = () => {
+// used to store the current search term entered by the user
   const [searchTerm, setSearchTerm] = useState("");
-  // can use filter.map with array in there
+// used to store the list of beers that are displayed on the page
   const [beerList, setBeerList] = useState([]);
-
+// used to store the minimum alcohol by volume (ABV) of the beers to display
   const [Abv, setAbv] = useState(0);
+// used to store the year range of the classic beers to display
   const [Classic, setClassic] = useState(2022);
-
+// used to filter the beerList based on the current searchTerm
   const filtered = beerList.filter((user) => {
     const userLowerCase = user.name.toLowerCase();
     return userLowerCase.includes(searchTerm) && user;
   });
 
+// FUNCTION TO GET THE ACIDIC FILTER TARGETS THE DATA ITSELF WITH THERE BEING NO DOCUMENTATION FOR URL
   const getAcidic = () => {
     const phBeer = beerList.filter((beer) => beer.ph < 4);
     setBeerList(phBeer);
   };
 
+// USES USESTATE TO SET THE URL AS THE DEFAULT TO UPDATE THE BEER LIST
   const getBeers = async (Abv, Classic) => {
     const url = `https://api.punkapi.com/v2/beers?abv_gt=${Abv}&brewed_before=11-${Classic}&per_page=80`;
     const result = await fetch(url);
@@ -30,16 +34,19 @@ const App = () => {
     console.log(beerList);
   };
 
+  // Whenever search term changes then it runs the effect eg alcohol percentage.
   useEffect(() => {
     getBeers(Abv, Classic);
-    // Whenever search term changes then it runs the effect eg alcohol percentage.
   }, [Abv, Classic]);
 
+
+// FUNCTION TO HANDLE THE SEARCH TERM INPUT
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
 
+  // HANDLES THE CLICKS ON THE BUTTONS TO FILTER THROUGH THE DATA
   const handleOnChange = (event) => {
     if (event.target.innerText === "High ABV - Above 6%" && Abv === 0) {
       return setAbv(6);
@@ -56,6 +63,7 @@ const App = () => {
     }
   };
 
+  // The JSX FOR THE APP 
   return (
     <div className="app">
       <header className="greeting">

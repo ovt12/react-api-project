@@ -1,8 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+it("Should display title showing Punk Api", () => {
+  // Renders App
+  render(<App/>)
+  // Arrange
+
+  const title = screen.getByText(/Punk API/i)
+  // Acting
+
+  expect(title).toBeInTheDocument()
+  // Asserting
+})
