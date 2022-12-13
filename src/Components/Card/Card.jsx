@@ -3,6 +3,8 @@ import "./Card.scss"
 
 const Card = ({image, name, description, firstBrewed, ph, abv}) => {
 
+    const shortenedText = description.substring(0, 300) + "...";
+
 
 
     return (
@@ -10,7 +12,7 @@ const Card = ({image, name, description, firstBrewed, ph, abv}) => {
         <div className="card__details">
             <img className="card__img" src={image} alt="" />
             <h2 className="card__name">{name}</h2>
-            <h3 className="card__description">{description}</h3>
+            <h3 className="card__description">{shortenedText}</h3>
             <h3 className="card__firstBrewed">First Brewed - {firstBrewed}</h3>
             <h3 className="card__ph">ph Level - {ph}</h3>
             <h3 className="card__abv">abv - {abv}%</h3>

@@ -2,7 +2,9 @@ import "./CardList.scss";
 import Card from "../Card/Card";
 
 
-const CardList = ({filtered, beerApi}) => {
+const CardList = ({beerApi}) => {
+
+
   // && is used to display the data when its ready 
   return beerApi && beerApi.map((user) => {
     return (
