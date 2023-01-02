@@ -19,7 +19,7 @@ const App = () => {
     return userLowerCase.includes(searchTerm) && user;
   });
 
-  const [Acidic, setAcidic] = useState(filtered)
+  // const [Acidic, setAcidic] = useState(filtered)
 
   // FUNCTION TO GET THE ACIDIC FILTER TARGETS THE DATA ITSELF WITH THERE BEING NO DOCUMENTATION FOR URL
   const getAcidic = () => {
@@ -59,11 +59,13 @@ const App = () => {
     } else if (event.target.id === "Classic" && Classic === 2010) {
       return setClassic(2022);
     }
-    if (event.target.id === "Acidic" && !setAcidic(filtered)) {
+    if (event.target.id === "Acidic") {
       return getAcidic();
-    } else if (event.target.id === "Acidic" && getAcidic()) {
-      return setAcidic(filtered)
-    }
+    };
+    
+    // } else if (event.target.id === "Acidic" && getAcidic()) {
+    //   return setAcidic(filtered)
+    // }
   };
 
   // The JSX FOR THE APP
